@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0A0A0A"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Settings"
+            android:textColor="#FFFFFF"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <!-- VOICE SETTINGS -->
+        <TextView
+            style="@style/SettingsHeader"
+            android:text="VOICE SETTINGS" />
+
+        <TextView
+            style="@style/SettingsLabel"
+            android:text="Speech Rate" />
+        <com.google.android.material.slider.Slider
+            android:id="@+id/sliderSpeechRate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="Adjust speech rate"
+            android:valueFrom="0.5"
+            android:valueTo="1.5"
+            android:value="0.85" />
+
+        <TextView
+            style="@style/SettingsLabel"
+            android:text="Speech Volume" />
+        <com.google.android.material.slider.Slider
+            android:id="@+id/sliderSpeechVolume"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="Adjust speech volume"
+            android:valueFrom="0.0"
+            android:valueTo="100.0"
+            android:value="100.0" />
+
+        <Button
+            android:id="@+id/btnTestVoice"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:contentDescription="Test the voice engine speech"
+            android:text="Test Voice" />
+
+        <!-- EMERGENCY SETTINGS -->
+        <TextView
+            style="@style/SettingsHeader"
+            android:text="EMERGENCY SETTINGS" />
+
+        <Button
+            android:id="@+id/btnSetupContacts"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:contentDescription="Configure emergency contacts"
+            android:text="Emergency Contacts" />
+
+        <Button
+            android:id="@+id/btnTestSOS"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:contentDescription="Trigger a test SOS alert"
+            android:text="Test SOS" />
+
+        <!-- HARDWARE SETTINGS -->
+        <TextView
+            style="@style/SettingsHeader"
+            android:text="HARDWARE SETTINGS" />
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/toggleHardwareType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="Choose hardware connection type"
+            app:singleSelection="true">
+            <Button
+                android:id="@+id/btnBluetooth"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="Bluetooth" />
+            <Button
+                android:id="@+id/btnWifi"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="WiFi" />
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <EditText
+            android:id="@+id/etHardwareIp"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:contentDescription="Enter WiFi IP address of the glasses"
+            android:hint="WiFi IP Address"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#80FFFFFF"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btnConnectHardware"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="Attempt to connect to the glasses hardware"
+            android:text="Connect Hardware" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="8dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status: "
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+            <View
+                android:id="@+id/hardwareStatusIndicator"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:contentDescription="Hardware connection status indicator"
+                android:background="@android:color/holo_red_dark" />
+        </LinearLayout>
+
+        <!-- AI SETTINGS -->
+        <TextView
+            style="@style/SettingsHeader"
+            android:text="AI SETTINGS" />
+
+        <Button
+            android:id="@+id/btnDownloadModels"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:contentDescription="Download AI models for offline functionality"
+            android:text="Download Offline Models" />
+        <TextView
+            android:id="@+id/tvModelStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status: Checking..."
+            android:textColor="#BBBBBB"
+            android:textSize="16sp" />
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/switchCrowdDetection"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:contentDescription="Toggle crowd detection alerts"
+            android:text="Crowd Detection"
+            android:textColor="#FFFFFF" />
+
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/switchDangerPrediction"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:contentDescription="Toggle danger prediction alerts"
+            android:text="Danger Prediction"
+            android:textColor="#FFFFFF" />
+
+        <!-- ABOUT -->
+        <TextView
+            style="@style/SettingsHeader"
+            android:text="ABOUT" />
+        <TextView
+            style="@style/SettingsLabel"
+            android:text="App Version: 1.0" />
+        <TextView
+            style="@style/SettingsLabel"
+            android:text="Team: Innvista" />
+        <TextView
+            style="@style/SettingsLabel"
+            android:text="College: DSCET" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="32dp" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
