@@ -12,4 +12,7 @@
 /captures
 .externalNativeBuild
 .cxx
+*.apk
+*.keystore
+google-services.json
 local.properties
